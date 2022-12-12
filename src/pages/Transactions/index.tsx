@@ -1,6 +1,6 @@
 import { useContextSelector } from 'use-context-selector'
 import { Header } from '../../components/Header'
-import { Summary } from '../../components/Summary'
+import {  } from '../../components/Summary'
 import { dateFormatter, priceFormatter } from '../../utils/formatter'
 import { SearchForm } from './components/SearchForm'
 import {
@@ -11,7 +11,7 @@ export function Transactions() {
   return (
     <div>
       <Header />
-      <Summary />
+      {/* <Summary /> */}
       <TransactionContainer>
         <SearchForm />
       </TransactionContainer>

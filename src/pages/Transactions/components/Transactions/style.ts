@@ -21,6 +21,7 @@ export const TransactionTable = styled.table`
         }
     }
 `
+
 interface PriceHighLight {
     variant: 'income' | 'outcome'
   }

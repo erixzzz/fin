@@ -34,6 +34,7 @@ export function NewTransactionModal() {
   async function handleCreateNewTransaction({description, price, category, type}: FormData) {
     try {
       await CreateNewTransactions(description, price, category, type)
+      // description: string, price: number, type: string, category: string
     } catch (error) {
       console.log(error)
     }
@@ -74,14 +75,15 @@ export function NewTransactionModal() {
 
           <Controller
             control={control}
-            name="type"
+            defaultValue="income"
+            {...register('type')}
             render={({ field }) => {
               console.log(field)
 
               return (
                 <TransactionType
-                  onValueChange={field.onChange}
                   value={field.value}
+                  onChange={field.onChange}
                 >
                   <TransactionTypeButton variant="income" value="income">
                     <ArrowCircleUp size={24} />

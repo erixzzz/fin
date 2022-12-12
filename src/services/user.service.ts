@@ -7,7 +7,7 @@ export const UserLogin = async (email: string, password: string) => {
   api.post("User/Login", values)
   .then((response) => {
     result = response.data;
-    if(typeof result === 'object')
+    if(typeof result != 'string')
     {
         localStorage.setItem("user", JSON.stringify(result));
         window.location.href = '/home';

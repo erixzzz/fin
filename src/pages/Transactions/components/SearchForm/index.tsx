@@ -3,8 +3,6 @@ import { useForm } from 'react-hook-form'
 import { SearchFormContainer } from './styles'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { TransactionsContext } from '../../../../contexts/TransactionsContext'
-import { useContextSelector } from 'use-context-selector'
 import { memo } from 'react'
 import {getTransactions} from '../../../../services/transactions.service'
 
@@ -24,7 +22,7 @@ function SearchFormComponent() {
   })
 
   async function handleSearchTransactions(data: SearchFormInputs) {
-    await getTransactions(data.query)
+    await getTransactions(data.query);
   }
 
   return (

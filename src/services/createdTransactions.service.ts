@@ -2,7 +2,8 @@ import { api } from "../lib/axios";
 
 export const CreateNewTransactions = async (description: string, price: number, type: string, category: string) => {
     let result = null;
-    let values = {description, price, type, category, toIdUser: window.localStorage.getItem('user.IdUser')}
+    let IdUser =  localStorage.getItem("user");
+    let values = {description, price, type, category, IdUser, date: new Date()};
 
     api.post("CreateTransaction", values)
     .then((response) => {
@@ -10,7 +11,6 @@ export const CreateNewTransactions = async (description: string, price: number, 
         if(typeof result === 'object')
         {
             window.location.href = '/home';
-            return result
         }
         else{
             alert(result)
