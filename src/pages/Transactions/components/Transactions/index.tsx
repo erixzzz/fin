@@ -14,13 +14,10 @@ interface TransactionProps {
 }
 
 export default function Transactions(transactions: Array<TransactionProps>){
-    console.log(transactions)
     return (
         <TransactionTable>
             <tbody key="body">
-                <>
                 {transactions?.map((transaction)=> {         
-                    console.log(transaction)
                     return (
                     <tr key={transaction.idTransaction}>
                         <td>{transaction.description}</td>
@@ -33,7 +30,6 @@ export default function Transactions(transactions: Array<TransactionProps>){
                         <td>{dateFormatter.format((transaction.createdAt))}</td>
                     </tr>
                     )})}
-                </>
             </tbody>
         </TransactionTable>
     )

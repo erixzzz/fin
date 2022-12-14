@@ -3,7 +3,7 @@ import { api } from "../lib/axios";
 export const CreateNewTransactions = async (description: string, price: number, type: string, category: string) => {
     let result = null;
     let IdUser =  localStorage.getItem("user");
-    let values = {description, price, type, category, IdUser, date: new Date()};
+    let values = {description, price, type, category, IdUser};
 
     api.post("CreateTransaction", values)
     .then((response) => {
@@ -13,10 +13,10 @@ export const CreateNewTransactions = async (description: string, price: number, 
             window.location.href = '/home';
         }
         else{
-            alert(result)
+            alert('Erro na devolução de dados da API')
         }
     })
     .catch((error) => {
-        console.log(error)
+        console.log('Erro ao realizar a requisição', error)
     });
 };
