@@ -26,11 +26,10 @@ export const getTransactions = async (Description: string) => {
             if(typeof response.data != 'string') {
               handleResponse(result)
               return result
-            } 
-                       
-          })
-          .catch((result) => {
-            console.log(result)
-          })
+            }                
+      })
+      .catch((result) => {
+        console.log(result)
+      })
     )
 };

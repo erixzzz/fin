@@ -18,19 +18,24 @@ export default function Transactions(transactions: Array<TransactionProps>){
         <TransactionTable>
             <tbody key="body">
                 {transactions?.map((transaction)=> {         
-                    return (
-                    <tr key={transaction.idTransaction}>
-                        <td>{transaction.description}</td>
-                        <td>
-                            <PriceHighLight variant={transaction.type}>
-                                {priceFormatter.format(transaction.value)}
-                            </PriceHighLight>
-                        </td>
-                        <td>{transaction.category}</td>
-                        <td>{dateFormatter.format((transaction.createdAt))}</td>
-                    </tr>
-                    )})}
+                    return TransactionItem(transaction)
+                })}
             </tbody>
         </TransactionTable>
+    )
+}
+
+function TransactionItem(transaction: TransactionProps){
+    return (
+        <tr key={transaction.idTransaction}>
+            <td>{transaction.description}</td>
+            <td>
+                <PriceHighLight variant={transaction.type}>
+                    {priceFormatter.format(transaction.value)}
+                </PriceHighLight>
+            </td>
+            <td>{transaction.category}</td>
+            <td>{dateFormatter.format((transaction.createdAt))}</td>
+        </tr> 
     )
 }
